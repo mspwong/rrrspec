@@ -1,4 +1,7 @@
-class PigLatin
+module WhyNots
+end
+
+class WhyNots::PigLatin
 
   def self.translate(text)
     text.split(" ").inject("") do |memo, token|
