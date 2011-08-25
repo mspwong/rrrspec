@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../app/models/why_nots/pig_latin'
 describe "PigLatin:  " do
   context "'hello world'" do
     it "is translated to 'ellohay orldway'" do
-      WhyNots::PigLatin.translate('hello world').should == 'ellohay orldway'
+      WhyNots::PigLatin.translate('hello world').should eq 'ellohay orldway'
     end
   end
 
