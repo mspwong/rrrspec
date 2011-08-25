@@ -3,6 +3,16 @@ require File.dirname(__FILE__)  + "/../app/models/why_nots/integer"
 
 describe Integer do
 
+  context "a non-integer" do
+    it "does not have access to core Integer methods" do
+      !0.5.integer?.should be_false
+      lambda { 0.5.even? }.should raise_error NoMethodError
+      lambda { 0.5.times { |i| puts "does not matter" } }.should raise_error NoMethodError
+      Time.now.should_not be_a_kind_of Integer
+      lambda { Time.now.even? }.should raise_error NoMethodError
+    end
+  end
+
   context "calling closest_fibonacci on a positive fixnum or zero" do
     it "returns the correct value" do
       -0.closest_fibonacci.should == 0
